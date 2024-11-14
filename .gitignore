@@ -1,0 +1,12 @@
+# 忽略 logs 文件夹
+bird/
+
+# 忽略 temp.txt 文件
+data/
+
+third_party/
+# 忽略 wandb 文件夹
+wandb/  
+
+# 忽略所有 .zip 文件
+*.zip   
