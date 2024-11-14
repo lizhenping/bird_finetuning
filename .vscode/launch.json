@@ -1,0 +1,51 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Train T5 Model",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/train_bird.py", 
+            "args": [
+                "--seed", "1",
+                "--cfg", "experiment/T5_3b_finetune_bird.cfg",
+                "--run_name", "T5_3b_bird_no_knowledge",
+                "--logging_strategy", "steps",
+                "--logging_first_step", "true",
+                "--logging_steps", "4",
+                "--evaluation_strategy", "steps",
+                "--eval_steps", "1000",
+                "--metric_for_best_model", "avr",
+                "--greater_is_better", "true",
+                "--save_strategy", "steps",
+                "--save_steps", "1000",
+                "--save_total_limit", "1",
+                "--load_best_model_at_end", "true",
+                "--gradient_accumulation_steps", "16",
+                "--num_train_epochs", "200",
+                "--adafactor", "true",
+                "--learning_rate", "5e-5",
+                "--do_train", "true",
+                "--do_eval", "true",
+                "--do_predict", "false",
+                "--predict_with_generate", "true",
+                "--output_dir", "output/T5_3b_bird",
+                "--per_device_train_batch_size", "2",
+                "--per_device_eval_batch_size", "32",
+                "--generation_num_beams", "1",
+                "--generation_max_length", "128",
+                "--input_max_length", "1024",
+                "--ddp_find_unused_parameters", "true",
+                "--report_to", "wandb",
+                "--overwrite_output_dir", "true"
+            ],
+            "env": {
+                "WANDB_API_KEY": "40e6bea46492f91908b07965c116fa3d81f1238c",
+                "WANDB_PROJECT": "bird",
+                "CUDA_VISIBLE_DEVICES": "1"
+            },
+            "envFile": "${workspaceFolder}/.env",  // 可选，指定一个.env文件以管理更多环境变量
+            "console": "integratedTerminal"
+        }
+    ]
+}
