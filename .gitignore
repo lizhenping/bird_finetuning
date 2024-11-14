@@ -9,4 +9,55 @@ third_party/
 wandb/  
 
 # 忽略所有 .zip 文件
-*.zip   
+*.zip
+
+# Python 环境和编译文件
+__pycache__/           # Python编译缓存
+*.py[cod]             # Python编译文件
+*$py.class            # Python优化编译文件
+*.so                  # C扩展编译文件
+
+# 编辑器和IDE
+.idea/                # PyCharm项目文件
+.vscode/             # VS Code配置文件
+*.swp                # Vim临时文件
+*.swo                # Vim临时文件
+
+# 系统文件
+.DS_Store            # Mac系统文件
+Thumbs.db            # Windows缩略图
+
+# 深度学习相关
+## 模型和检查点
+checkpoints/         # 模型检查点
+*.pth               # PyTorch模型
+*.ckpt              # 检查点文件
+*.pt                # PyTorch模型
+*.h5                # Keras/HDF5文件
+events.out.tfevents.* # TensorFlow事件文件
+
+## 数据文件
+*.csv               # CSV数据文件
+*.tsv               # TSV数据文件
+*.json              # JSON文件
+*.jsonl             # JSON Lines文件
+*.pkl               # Pickle文件
+*.npy               # NumPy数组
+*.npz               # 压缩NumPy文件
+
+# 临时文件
+temp*/              # 临时目录
+tmp*/               # 临时目录
+*.log               # 日志文件
+
+# 环境相关
+.env                # 环境变量文件
+venv/               # 虚拟环境
+.venv/              # 虚拟环境
+ENV/                # 环境目录
+.conda/             # Conda环境
+
+# 包管理
+*.egg-info/         # 包信息
+dist/               # 分发目录
+build/              # 构建目录
