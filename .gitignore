@@ -12,17 +12,17 @@ wandb/
 *.zip
 
 # Python 环境和编译文件
-__pycache__/           # Python编译缓存
+__pycache__/          # Python编译缓存
 *.py[cod]             # Python编译文件
 *$py.class            # Python优化编译文件
 *.so                  # C扩展编译文件
 
 # 编辑器和IDE
-.idea/                # PyCharm项目文件
+.idea/               # PyCharm项目文件
 .vscode/             # VS Code配置文件
 *.swp                # Vim临时文件
 *.swo                # Vim临时文件
-
+*.lock               # .py运行产的临时文件
 # 系统文件
 .DS_Store            # Mac系统文件
 Thumbs.db            # Windows缩略图

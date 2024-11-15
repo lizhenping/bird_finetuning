@@ -3,7 +3,7 @@
     "configurations": [
         {
             "name": "Train T5 Model",
-            "type": "debugpy",
+            "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/train_bird.py", 
             "args": [
