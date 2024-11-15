@@ -3,7 +3,7 @@
     "configurations": [
         {
             "name": "Train T5 Model",
-            "type": "python",
+            "type": "python",  // 指定调试器类型 vscode python extension v2022.8.0
             "request": "launch",
             "program": "${workspaceFolder}/train_bird.py", 
             "args": [
