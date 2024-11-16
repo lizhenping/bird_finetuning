@@ -126,6 +126,7 @@ def main() -> None:
         seq2seq_train_dataset, seq2seq_eval_dataset, seq2seq_test_dataset = seq2seq_dataset_split
     else:
         raise ValueError("Other split not support yet.")
+    
 
     # We wrap the "string" seq2seq data into "tokenized tensor".
     train_dataset = TokenizedDataset(args, training_args, model_tokenizer,
@@ -205,11 +206,26 @@ def main() -> None:
         metrics = trainer.evaluate(
             metric_key_prefix="eval"
         )
-        max_eval_samples = len(eval_dataset)
+        # max_eval_samples = len(eval_dataset)
+        max_eval_samples = 2
         metrics["eval_samples"] = min(max_eval_samples, len(eval_dataset))
 
         trainer.log_metrics("eval", metrics)
         trainer.save_metrics("eval", metrics)
+
+        # 添加保存评估结果到 ./bird/dev_result.bin
+        import pickle
+
+        save_dir = './bird/'
+        os.makedirs(save_dir, exist_ok=True)
+        dev_result_path = os.path.join(save_dir, 'dev_result.bin')
+
+        try:
+            with open(dev_result_path, 'wb') as f:
+                pickle.dump(metrics, f)
+            logger.info(f"Saved evaluation results to {dev_result_path}")
+        except Exception as e:
+            logger.error(f"Failed to save evaluation results: {e}")
 
     if training_args.do_predict:
         logger.info("*** Predict ***")

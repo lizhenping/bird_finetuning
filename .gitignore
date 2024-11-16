@@ -1,3 +1,4 @@
+output/
 # 忽略 logs 文件夹
 bird/
 
@@ -23,6 +24,7 @@ __pycache__/          # Python编译缓存
 *.swp                # Vim临时文件
 *.swo                # Vim临时文件
 *.lock               # .py运行产的临时文件
+*.pyc                # .py运行产的临时文件
 # 系统文件
 .DS_Store            # Mac系统文件
 Thumbs.db            # Windows缩略图
@@ -61,3 +63,4 @@ ENV/                # 环境目录
 *.egg-info/         # 包信息
 dist/               # 分发目录
 build/              # 构建目录
+tasks/bird.py.lock

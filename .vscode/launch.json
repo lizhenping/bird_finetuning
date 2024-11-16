@@ -14,11 +14,11 @@
                 "--logging_first_step", "true",
                 "--logging_steps", "4",
                 "--evaluation_strategy", "steps",
-                "--eval_steps", "1000",
+                "--eval_steps", "2",
                 "--metric_for_best_model", "avr",
                 "--greater_is_better", "true",
                 "--save_strategy", "steps",
-                "--save_steps", "1000",
+                "--save_steps", "2",
                 "--save_total_limit", "1",
                 "--load_best_model_at_end", "true",
                 "--gradient_accumulation_steps", "16",
@@ -27,11 +27,11 @@
                 "--learning_rate", "5e-5",
                 "--do_train", "true",
                 "--do_eval", "true",
-                "--do_predict", "false",
+                "--do_predict", "true",
                 "--predict_with_generate", "true",
                 "--output_dir", "output/T5_3b_bird",
                 "--per_device_train_batch_size", "2",
-                "--per_device_eval_batch_size", "32",
+                "--per_device_eval_batch_size", "2",
                 "--generation_num_beams", "1",
                 "--generation_max_length", "128",
                 "--input_max_length", "1024",
@@ -42,7 +42,7 @@
             "env": {
                 "WANDB_API_KEY": "40e6bea46492f91908b07965c116fa3d81f1238c",
                 "WANDB_PROJECT": "bird",
-                "CUDA_VISIBLE_DEVICES": "1"
+                "CUDA_VISIBLE_DEVICES": "0"
             },
             "envFile": "${workspaceFolder}/.env",  // 可选，指定一个.env文件以管理更多环境变量
             "console": "integratedTerminal"

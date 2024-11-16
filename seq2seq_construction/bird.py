@@ -350,7 +350,9 @@ class TrainDataset(Dataset):
             self.extended_data = torch.load(cache_path)
         else:
             self.extended_data = []
-            for raw_data in tqdm(self.raw_datasets):
+            for idx, raw_data in enumerate(tqdm(self.raw_datasets)):
+                if idx >= 20:
+                    break
                 extend_data = deepcopy(raw_data)
                 extend_data.update(bird_add_serialized_schema(extend_data, args))
 
@@ -379,7 +381,9 @@ class DevDataset(Dataset):
             self.extended_data = torch.load(cache_path)
         else:
             self.extended_data = []
-            for raw_data in tqdm(self.raw_datasets):
+            for idx, raw_data in enumerate(tqdm(self.raw_datasets)):
+                if idx >= 20:
+                    break
                 extend_data = deepcopy(raw_data)
                 extend_data.update(bird_add_serialized_schema(extend_data, args))
 
