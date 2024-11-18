@@ -45,7 +45,7 @@ def main() -> None:
     training_args, = parser.parse_args_into_dataclasses()
     set_seed(training_args.seed)
     args = Configure.Get(training_args.cfg)
-
+    
     if 'checkpoint-???' in args.bert.location:
         args.bert.location = get_last_checkpoint(
             os.path.dirname(args.bert.location.model_name_or_path))
